@@ -1,0 +1,152 @@
+:root {
+    --roulette-size: 300px;
+    --roulette-bg-color: #333;
+    --roulette-border-color: #eee;
+    --roulette-text-color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 90%;
+    width: 500px;
+}
+
+h1 {
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.roulette-wrapper {
+    position: relative;
+    width: var(--roulette-size);
+    height: var(--roulette-size);
+    margin: 0 auto 20px;
+}
+
+#roulette-wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--roulette-bg-color);
+    border: 5px solid var(--roulette-border-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 5s cubic-bezier(0.1, 0.7, 0.5, 1);
+}
+
+#roulette-wheel.spinning {
+    transition: none; /* 스핀 중에 transition 제거 */
+}
+
+.roulette-segment {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0 100%;
+    border: 1px solid var(--roulette-border-color);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.roulette-segment-text {
+    color: var(--roulette-text-color);
+    font-weight: bold;
+    font-size: 14px;
+    transform: rotate(90deg); /* 텍스트를 세로로 정렬 */
+    transform-origin: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+
+.pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #ff4500;
+    z-index: 10;
+}
+
+.result-display {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4500;
+}
+
+#spin-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#spin-button:hover {
+    background-color: #218838;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    .option-input {
+        font-size: 14px;
+    }
+    #spin-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
