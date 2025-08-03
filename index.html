@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today What?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>오늘은 뭐 할까?</h1>
+        <div class="input-container">
+            <input type="text" class="option-input" placeholder="옵션 1">
+            <input type="text" class="option-input" placeholder="옵션 2">
+            <input type="text" class="option-input" placeholder="옵션 3">
+            <input type="text" class="option-input" placeholder="옵션 4">
+            <input type="text" class="option-input" placeholder="옵션 5">
+        </div>
+        <div class="roulette-wrapper">
+            <div id="roulette-wheel">
+                <div class="pointer"></div>
+            </div>
+            <div class="result-display" id="result-display"></div>
+        </div>
+        <button id="spin-button">돌리기</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
